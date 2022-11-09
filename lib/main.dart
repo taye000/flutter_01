@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final wordPair = WordPair.random();
     return MaterialApp(
       title: 'Fluttering',
       theme: ThemeData(
@@ -25,7 +26,14 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.green,
       ),
-      home: const MyHomePage(title: 'The baddest App'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('The baddest App'),
+        ),
+        body: Center(
+          child: Text(wordPair.asPascalCase),
+        ),
+      ),
     );
   }
 }
